@@ -1,0 +1,102 @@
+﻿@page
+@using OutOfOffice.Helpers
+@model OutOfOffice.Pages.ApprovalRequest.IndexModel
+@inject Helpers.Access access;
+
+@{
+    ViewData["Title"] = "Index";
+    var user = (EmployeeModel)ViewData["CurrentUser"];
+}
+
+<h1>Index</h1>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <input hidden type="text" name="sortOrder" value="@Model.CurrentSort" />
+            ID
+            <input type="text" name="idSearch" value="@Model.IdSearch" />
+            Approver
+            <input type="text" name="approverSearch" value="@Model.ApproverFilter" />
+            Employee
+            <input type="text" name="employeeSearch" value="@Model.EmployeeFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-idSearch="@Model.IdSearch" asp-route-approverSearch="@Model.ApproverFilter" asp-route-employeeSearch="@Model.EmployeeFilter" asp-route-sortOrder="@Model.IDSort">
+                    @Html.DisplayNameFor(model => model.ApprovalRequest[0].ID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-idSearch="@Model.IdSearch" asp-route-approverSearch="@Model.ApproverFilter" asp-route-employeeSearch="@Model.EmployeeFilter" asp-route-sortOrder="@Model.ApproverSort">
+                    @Html.DisplayNameFor(model => model.ApprovalRequest[0].Approver)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-idSearch="@Model.IdSearch" asp-route-approverSearch="@Model.ApproverFilter" asp-route-employeeSearch="@Model.EmployeeFilter" asp-route-sortOrder="@Model.LeaveRequestSort">
+                    @Html.DisplayNameFor(model => model.ApprovalRequest[0].LeaveRequest)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-idSearch="@Model.IdSearch" asp-route-approverSearch="@Model.ApproverFilter" asp-route-employeeSearch="@Model.EmployeeFilter" asp-route-sortOrder="@Model.EmployeeSort">
+                    @Html.DisplayNameFor(model => model.ApprovalRequest[0].LeaveRequest.Employee)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-idSearch="@Model.IdSearch" asp-route-approverSearch="@Model.ApproverFilter" asp-route-employeeSearch="@Model.EmployeeFilter" asp-route-sortOrder="@Model.StatusSort">
+                    @Html.DisplayNameFor(model => model.ApprovalRequest[0].Status)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-idSearch="@Model.IdSearch" asp-route-approverSearch="@Model.ApproverFilter" asp-route-employeeSearch="@Model.EmployeeFilter" asp-route-sortOrder="@Model.CommentSort">
+                    @Html.DisplayNameFor(model => model.ApprovalRequest[0].Comment)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ApprovalRequest) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approver.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveRequest.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveRequest.Employee.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                @if (item.Status == RequestStatus.New)
+                {
+                    @Html.Raw("|")
+                    <a asp-page="./Edit" asp-page-handler="Update" asp-route-status="@RequestStatus.Approved" asp-route-id="@item.ID">Accept</a>
+                    @Html.Raw("|")
+                    <a asp-page="./Edit" asp-page-handler="Update" asp-route-status="@RequestStatus.Rejected" asp-route-id="@item.ID">Reject</a>
+                }
+@*                     @if (item.Status == RequestStatus.New || item.Status == RequestStatus.Submitted)
+                {
+                    @Html.Raw("|")
+                    <a asp-page="./Edit" asp-page-handler="Update" asp-route-status="@RequestStatus.Cancelled" asp-route-id="@item.ID">Cancel</a>
+                } *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

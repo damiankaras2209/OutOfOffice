@@ -1,0 +1,80 @@
+﻿@page
+@model OutOfOffice.Pages.Employee.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    SelectList subdivisions = (SelectList)ViewData["Subdivisions"];
+    SelectList positions = (SelectList)ViewData["Positions"];
+    SelectList partners = (SelectList)ViewData["Partners"];
+    SelectList statuses = (SelectList)ViewData["Statuses"];
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.FullName" class="control-label"></label>
+                <input asp-for="EmployeeModel.FullName" class="form-control" />
+                <span asp-validation-for="EmployeeModel.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.UserNameInput" class="control-label"></label>
+                <input asp-for="EmployeeModel.UserNameInput" class="form-control" />
+                <span asp-validation-for="EmployeeModel.UserNameInput" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.PasswordInput" class="control-label"></label>
+                <input asp-for="EmployeeModel.PasswordInput" class="form-control" />
+                <span asp-validation-for="EmployeeModel.PasswordInput" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.Subdivision" class="control-label"></label>
+                <select asp-for="EmployeeModel.Subdivision" class="form-control" asp-items="subdivisions">
+                    <option value="">-- Pick subdivision --</option>
+                </select>
+                <span asp-validation-for="EmployeeModel.Subdivision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.Position" class="control-label"></label>
+                <select asp-for="EmployeeModel.Position" class="form-control" asp-items="positions">
+                    <option value="">-- Pick position --</option>
+                </select>
+                <span asp-validation-for="EmployeeModel.Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.Status" class="control-label"></label>
+                <select asp-for="EmployeeModel.Status" class="form-control" asp-items="statuses"></select>
+                <span asp-validation-for="EmployeeModel.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.PeoplePartner" class="control-label"></label>
+                <select asp-for="EmployeeModel.PeoplePartnerId" class="form-control" asp-items="partners">
+                    <option value="">-- Pick partner --</option>
+                </select>
+                <span asp-validation-for="EmployeeModel.PeoplePartnerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.Balance" class="control-label"></label>
+                <input asp-for="EmployeeModel.Balance" class="form-control" />
+                <span asp-validation-for="EmployeeModel.Balance" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

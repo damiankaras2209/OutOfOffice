@@ -1,0 +1,68 @@
+﻿@page
+@model OutOfOffice.Pages.Project.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    SelectList types = (SelectList)ViewData["ProjectTypes"];
+    SelectList managers = (SelectList)ViewData["ProjectManagers"];
+    SelectList statuses = (SelectList)ViewData["Statuses"];
+}
+
+<h1>Edit</h1>
+
+<h4>ProjectModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProjectModel.ID" />
+            <div class="form-group">
+                <label asp-for="ProjectModel.ProjectType" class="control-label"></label>
+                <select asp-for="ProjectModel.ProjectType" class="form-control" asp-items="types">
+                    <option value="">-- Pick project type --</option>
+                </select>
+                <span asp-validation-for="ProjectModel.ProjectType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectModel.ProjectManager" class="control-label"></label>
+                <select asp-for="ProjectModel.ProjectManagerId" class="form-control" asp-items="managers">
+                    <option value="">-- Pick project manager --</option>
+                </select>
+                <span asp-validation-for="ProjectModel.ProjectManagerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectModel.StartDate" class="control-label"></label>
+                <input type="date" asp-for="ProjectModel.StartDate" class="form-control" />
+                <span asp-validation-for="ProjectModel.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectModel.EndDate" class="control-label"></label>
+                <input type="date" asp-for="ProjectModel.EndDate" class="form-control" />
+                <span asp-validation-for="ProjectModel.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectModel.Comment" class="control-label"></label>
+                <input asp-for="ProjectModel.Comment" class="form-control" />
+                <span asp-validation-for="ProjectModel.Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectModel.Status" class="control-label"></label>
+                <select asp-for="ProjectModel.Status" class="form-control" asp-items="statuses"></select>
+                <span asp-validation-for="ProjectModel.Status" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,37 @@
+﻿@page
+@model OutOfOffice.Pages.ApprovalRequest.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    var approvalRequest = (ApprovalRequestModel)ViewData["ApprovalRequest"];
+}
+
+<h1>Reject Request</h1>
+
+<h4>ApprovalRequest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RejectInputModel.RequestId" value="@approvalRequest.ID" />
+            <div class="form-group">
+                <label asp-for="RejectInputModel.Comment" class="control-label"></label>
+                <input asp-for="RejectInputModel.Comment" class="form-control" />
+                <span asp-validation-for="RejectInputModel.Comment" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
