@@ -450,21 +450,21 @@ namespace OutOfOffice.Migrations
                         new
                         {
                             ID = 1,
-                            ApproverId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            ApproverId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             LeaveRequestID = 1,
                             Status = 0
                         },
                         new
                         {
                             ID = 2,
-                            ApproverId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            ApproverId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             LeaveRequestID = 2,
                             Status = 0
                         },
                         new
                         {
                             ID = 3,
-                            ApproverId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            ApproverId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             LeaveRequestID = 3,
                             Status = 0
                         });
@@ -528,13 +528,13 @@ namespace OutOfOffice.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7efca1d3-da46-4110-a66d-254887f88111",
+                            Id = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Balance = 0,
                             FullName = "HR Manager",
                             NID = 1,
                             NormalizedUserName = "hrmanager",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            PeoplePartnerId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Position = 1,
                             Status = 0,
                             Subdivision = 0,
@@ -542,13 +542,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "f127b9c0-c89a-4695-a610-1747f1e188e0",
+                            Id = "9cf7aa49-e432-4be8-b760-10c0496aab0c",
                             Balance = 0,
                             FullName = "Administrator",
                             NID = 2,
                             NormalizedUserName = "administrator",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            PeoplePartnerId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Position = 2,
                             Status = 0,
                             Subdivision = 0,
@@ -556,13 +556,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "15eba506-1421-45bd-a2f3-900e73899ccf",
+                            Id = "072f3dac-4464-4773-93a9-ab6ceaf6dda9",
                             Balance = 0,
                             FullName = "Project Manager",
                             NID = 3,
                             NormalizedUserName = "projectmanager",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            PeoplePartnerId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Position = 0,
                             Status = 0,
                             Subdivision = 0,
@@ -570,13 +570,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "f777607e-284c-47b8-a16b-969feb867b0f",
+                            Id = "8a421f5d-6739-43f1-a5d0-78e0878d72d7",
                             Balance = 0,
                             FullName = "PM",
                             NID = 4,
                             NormalizedUserName = "projectmanager2",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            PeoplePartnerId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Position = 0,
                             Status = 0,
                             Subdivision = 1,
@@ -584,13 +584,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "6d2e2a5d-140a-4b51-9155-94c879a67fbd",
+                            Id = "cf84a353-3b1c-499f-bc7a-3d6b78ce67c0",
                             Balance = 20,
                             FullName = "Employee",
                             NID = 5,
                             NormalizedUserName = "employee",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            PeoplePartnerId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Position = 3,
                             Status = 0,
                             Subdivision = 0,
@@ -598,13 +598,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "070e9568-8359-47dc-ae39-2cd59304c7bb",
+                            Id = "bc6e59e8-9742-4c92-823b-81dc31780b32",
                             Balance = 14,
                             FullName = "Employee 2",
                             NID = 6,
                             NormalizedUserName = "employee2",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
+                            PeoplePartnerId = "8e5ef795-f6c6-4954-b37b-001e7074d43b",
                             Position = 3,
                             Status = 0,
                             Subdivision = 0,
@@ -651,30 +651,30 @@ namespace OutOfOffice.Migrations
                             ID = 1,
                             AbsenceReason = 2,
                             Comment = "Comment A",
-                            EmployeeId = "6d2e2a5d-140a-4b51-9155-94c879a67fbd",
+                            EmployeeId = "cf84a353-3b1c-499f-bc7a-3d6b78ce67c0",
                             EndDate = new DateOnly(2024, 6, 3),
                             StartDate = new DateOnly(2024, 6, 1),
-                            Status = 0
+                            Status = 1
                         },
                         new
                         {
                             ID = 2,
                             AbsenceReason = 0,
                             Comment = "Comment B",
-                            EmployeeId = "070e9568-8359-47dc-ae39-2cd59304c7bb",
+                            EmployeeId = "bc6e59e8-9742-4c92-823b-81dc31780b32",
                             EndDate = new DateOnly(2024, 6, 23),
                             StartDate = new DateOnly(2024, 6, 23),
-                            Status = 0
+                            Status = 1
                         },
                         new
                         {
                             ID = 3,
                             AbsenceReason = 3,
                             Comment = "Comment C",
-                            EmployeeId = "6d2e2a5d-140a-4b51-9155-94c879a67fbd",
+                            EmployeeId = "cf84a353-3b1c-499f-bc7a-3d6b78ce67c0",
                             EndDate = new DateOnly(2024, 3, 30),
                             StartDate = new DateOnly(2024, 3, 20),
-                            Status = 0
+                            Status = 1
                         });
                 });
 
@@ -718,7 +718,7 @@ namespace OutOfOffice.Migrations
                             ID = 1,
                             Comment = "Comment X",
                             EndDate = new DateOnly(2024, 11, 30),
-                            ProjectManagerId = "15eba506-1421-45bd-a2f3-900e73899ccf",
+                            ProjectManagerId = "072f3dac-4464-4773-93a9-ab6ceaf6dda9",
                             ProjectType = 2,
                             StartDate = new DateOnly(2023, 10, 1),
                             Status = 0
@@ -728,7 +728,7 @@ namespace OutOfOffice.Migrations
                             ID = 2,
                             Comment = "Comment Z",
                             EndDate = new DateOnly(2024, 5, 30),
-                            ProjectManagerId = "15eba506-1421-45bd-a2f3-900e73899ccf",
+                            ProjectManagerId = "072f3dac-4464-4773-93a9-ab6ceaf6dda9",
                             ProjectType = 0,
                             StartDate = new DateOnly(2024, 1, 15),
                             Status = 1
@@ -738,7 +738,7 @@ namespace OutOfOffice.Migrations
                             ID = 3,
                             Comment = "Comment Y",
                             EndDate = new DateOnly(2023, 12, 31),
-                            ProjectManagerId = "15eba506-1421-45bd-a2f3-900e73899ccf",
+                            ProjectManagerId = "072f3dac-4464-4773-93a9-ab6ceaf6dda9",
                             ProjectType = 1,
                             StartDate = new DateOnly(2020, 1, 1),
                             Status = 0
