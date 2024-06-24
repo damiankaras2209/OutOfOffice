@@ -1,8 +1,10 @@
 ﻿@page
 @model OutOfOffice.Pages.LeaveRequest.DetailsModel
+@inject Helpers.Access access;
 
 @{
     ViewData["Title"] = "Details";
+    var user = (EmployeeModel)ViewData["CurrentUser"];
 }
 
 <h1>Details</h1>
@@ -44,6 +46,9 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.LeaveRequest.ID">Edit</a> |
+    @if (access.HasAccess(user, AccessResourceModel.AccessResource.LeaveRequestsCreateAndManage))
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.LeaveRequest.ID">Edit</a> @Html.Raw("|")
+    }
     <a asp-page="./Index">Back to List</a>
 </div>

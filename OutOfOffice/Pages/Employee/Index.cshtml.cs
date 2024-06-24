@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
 
@@ -47,7 +41,7 @@ namespace OutOfOffice.Pages.Employee
         public string IdSearch { get; set; }
         public string FullNameSearch { get; set; }
 
-        public IList<EmployeeModel> Employee { get;set; } = default!;
+        public IList<EmployeeModel> Employee { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string sortOrder, string idSearch, string fullNameSearch)
         {
@@ -86,22 +80,22 @@ namespace OutOfOffice.Pages.Employee
 
             switch (sortOrder)
             {
-                case "id":                  employeeIQ = employeeIQ.OrderBy(e => e.NID); break;
-                case "id_desc":             employeeIQ = employeeIQ.OrderByDescending(e => e.NID); break;
-                case "fullname":            employeeIQ = employeeIQ.OrderBy(e => e.FullName); break;
-                case "fullname_desc":       employeeIQ = employeeIQ.OrderByDescending(e => e.FullName); break;
-                case "subdivision":         employeeIQ = employeeIQ.OrderBy(e => e.Subdivision); break;
-                case "subdivision_desc":    employeeIQ = employeeIQ.OrderByDescending(e => e.Subdivision); break;
-                case "position":            employeeIQ = employeeIQ.OrderBy(e => e.Position); break;
-                case "position_desc":       employeeIQ = employeeIQ.OrderByDescending(e => e.Position); break;
-                case "status":              employeeIQ = employeeIQ.OrderBy(e => e.Status); break;
-                case "status_desc":         employeeIQ = employeeIQ.OrderByDescending(e => e.Status); break;
-                case "partner":             employeeIQ = employeeIQ.OrderBy(e => e.PeoplePartner.FullName); break;
-                case "partner_desc":        employeeIQ = employeeIQ.OrderByDescending(e => e.PeoplePartner.FullName); break;
-                case "balance":             employeeIQ = employeeIQ.OrderBy(e => e.Balance); break;
-                case "balance_desc":        employeeIQ = employeeIQ.OrderByDescending(e => e.Balance); break;
-                case "project":             employeeIQ = employeeIQ.OrderBy(e => e.Project.ID); break;
-                case "project_desc":        employeeIQ = employeeIQ.OrderByDescending(e => e.Project.ID); break;
+                case "id": employeeIQ = employeeIQ.OrderBy(e => e.NID); break;
+                case "id_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.NID); break;
+                case "fullname": employeeIQ = employeeIQ.OrderBy(e => e.FullName); break;
+                case "fullname_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.FullName); break;
+                case "subdivision": employeeIQ = employeeIQ.OrderBy(e => e.Subdivision); break;
+                case "subdivision_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.Subdivision); break;
+                case "position": employeeIQ = employeeIQ.OrderBy(e => e.Position); break;
+                case "position_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.Position); break;
+                case "status": employeeIQ = employeeIQ.OrderBy(e => e.Status); break;
+                case "status_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.Status); break;
+                case "partner": employeeIQ = employeeIQ.OrderBy(e => e.PeoplePartner.FullName); break;
+                case "partner_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.PeoplePartner.FullName); break;
+                case "balance": employeeIQ = employeeIQ.OrderBy(e => e.Balance); break;
+                case "balance_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.Balance); break;
+                case "project": employeeIQ = employeeIQ.OrderBy(e => e.Project.ID); break;
+                case "project_desc": employeeIQ = employeeIQ.OrderByDescending(e => e.Project.ID); break;
                 default:
                     employeeIQ = employeeIQ.OrderBy(e => e.NID);
                     break;

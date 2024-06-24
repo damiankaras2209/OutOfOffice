@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
 
@@ -47,7 +40,7 @@ namespace OutOfOffice.Pages.LeaveRequest
         public string IdSearch { get; set; }
         public string EmployeeSearch { get; set; }
 
-        public IList<LeaveRequestModel> LeaveRequest { get;set; } = default!;
+        public IList<LeaveRequestModel> LeaveRequest { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string sortOrder, string idSearch, string employeeSearch)
         {
@@ -74,9 +67,9 @@ namespace OutOfOffice.Pages.LeaveRequest
             EmployeeSearch = employeeSearch;
 
             IQueryable<LeaveRequestModel> leaveRequestIQ = from l in _context.LeaveRequests.Include(l => l.Employee)
-                                                  select l;
+                                                           select l;
 
-            if(! _access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.LeaveRequestsFullList))
+            if (!_access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.LeaveRequestsFullList))
             {
 
                 leaveRequestIQ = leaveRequestIQ.Where(l => l.Employee == CurrentUser);
@@ -91,20 +84,20 @@ namespace OutOfOffice.Pages.LeaveRequest
 
             switch (sortOrder)
             {
-                case "id":              leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.ID); break;
-                case "id_desc":         leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.ID); break;
-                case "employee":        leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.Employee.FullName); break;
-                case "employee_desc":   leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.Employee.FullName); break;
-                case "reason":          leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.AbsenceReason); break;
-                case "reason_desc":     leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.AbsenceReason); break;
-                case "start":           leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.StartDate); break;
-                case "start_desc":      leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.StartDate); break;
-                case "end":             leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.EndDate); break;
-                case "end_desc":        leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.EndDate); break;
-                case "comment":         leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.Comment); break;
-                case "comment_desc":    leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.Comment); break;
-                case "status":          leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.Status); break;
-                case "status_desc":     leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.Status); break;
+                case "id": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.ID); break;
+                case "id_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.ID); break;
+                case "employee": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.Employee.FullName); break;
+                case "employee_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.Employee.FullName); break;
+                case "reason": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.AbsenceReason); break;
+                case "reason_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.AbsenceReason); break;
+                case "start": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.StartDate); break;
+                case "start_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.StartDate); break;
+                case "end": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.EndDate); break;
+                case "end_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.EndDate); break;
+                case "comment": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.Comment); break;
+                case "comment_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.Comment); break;
+                case "status": leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.Status); break;
+                case "status_desc": leaveRequestIQ = leaveRequestIQ.OrderByDescending(l => l.Status); break;
                 default:
                     leaveRequestIQ = leaveRequestIQ.OrderBy(l => l.ID);
                     break;

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
 
-namespace OutOfOffice.Pages.ApprovalRequest
+namespace OutOfOffice.Pages.Employee
 {
     public class DetailsModel : PageModel
     {
@@ -27,16 +27,16 @@ namespace OutOfOffice.Pages.ApprovalRequest
         [ViewData]
         public EmployeeModel? CurrentUser { get; set; }
 
-        public ApprovalRequestModel ApprovalRequest { get; set; } = default!;
+        public EmployeeModel Employee { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string? id)
         {
             var userName = User?.Identity?.Name;
             if (userName != null)
             {
                 CurrentUser = await _userManager.FindByNameAsync(userName);
             }
-            if (!_access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.ApprovalRequestsList))
+            if (!_access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.EmployeesList))
             {
                 return Forbid();
             }
@@ -45,14 +45,14 @@ namespace OutOfOffice.Pages.ApprovalRequest
                 return NotFound();
             }
 
-            var approvalrequest = await _context.ApprovalRequests.Include(a => a.Approver).Include(a => a.LeaveRequest).Include(a => a.LeaveRequest.Employee).FirstOrDefaultAsync(m => m.ID == id);
-            if (approvalrequest == null)
+            var employee = await _context.Employees.Include(e => e.PeoplePartner).FirstOrDefaultAsync(m => m.Id == id);
+            if (employee == null)
             {
                 return NotFound();
             }
             else
             {
-                ApprovalRequest = approvalrequest;
+                Employee = employee;
             }
             return Page();
         }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
 
@@ -45,7 +39,7 @@ namespace OutOfOffice.Pages.ApprovalRequest
         public string ApproverFilter { get; set; }
         public string EmployeeFilter { get; set; }
 
-        public IList<ApprovalRequestModel> ApprovalRequest { get;set; } = default!;
+        public IList<ApprovalRequestModel> ApprovalRequest { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string sortOrder, string idSearch, string approverSearch, string employeeSearch)
         {
@@ -54,7 +48,7 @@ namespace OutOfOffice.Pages.ApprovalRequest
             {
                 CurrentUser = await _userManager.FindByNameAsync(userName);
             }
-            if (! _access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.ApprovalRequestsList))
+            if (!_access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.ApprovalRequestsList))
             {
                 return Forbid();
             }
@@ -84,18 +78,18 @@ namespace OutOfOffice.Pages.ApprovalRequest
 
             switch (sortOrder)
             {
-                case "id":              approverRequestIQ = approverRequestIQ.OrderBy(a => a.ID); break;
-                case "id_desc":         approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.ID); break;
-                case "approver":        approverRequestIQ = approverRequestIQ.OrderBy(a => a.Approver.FullName); break;
-                case "approver_desc":   approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.Approver.FullName); break;
-                case "lr":              approverRequestIQ = approverRequestIQ.OrderBy(a => a.LeaveRequest.ID); break;
-                case "lr_desc":         approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.LeaveRequest.ID); break;
-                case "employee":        approverRequestIQ = approverRequestIQ.OrderBy(a => a.LeaveRequest.Employee.FullName); break;
-                case "employee_desc":   approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.LeaveRequest.Employee.FullName); break;
-                case "comment":         approverRequestIQ = approverRequestIQ.OrderBy(a => a.Comment); break;
-                case "comment_desc":    approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.Comment); break;
-                case "status":          approverRequestIQ = approverRequestIQ.OrderBy(a => a.Status); break;
-                case "status_desc":     approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.Status); break;
+                case "id": approverRequestIQ = approverRequestIQ.OrderBy(a => a.ID); break;
+                case "id_desc": approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.ID); break;
+                case "approver": approverRequestIQ = approverRequestIQ.OrderBy(a => a.Approver.FullName); break;
+                case "approver_desc": approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.Approver.FullName); break;
+                case "lr": approverRequestIQ = approverRequestIQ.OrderBy(a => a.LeaveRequest.ID); break;
+                case "lr_desc": approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.LeaveRequest.ID); break;
+                case "employee": approverRequestIQ = approverRequestIQ.OrderBy(a => a.LeaveRequest.Employee.FullName); break;
+                case "employee_desc": approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.LeaveRequest.Employee.FullName); break;
+                case "comment": approverRequestIQ = approverRequestIQ.OrderBy(a => a.Comment); break;
+                case "comment_desc": approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.Comment); break;
+                case "status": approverRequestIQ = approverRequestIQ.OrderBy(a => a.Status); break;
+                case "status_desc": approverRequestIQ = approverRequestIQ.OrderByDescending(p => p.Status); break;
                 default:
                     approverRequestIQ = approverRequestIQ.OrderBy(p => p.ID);
                     break;

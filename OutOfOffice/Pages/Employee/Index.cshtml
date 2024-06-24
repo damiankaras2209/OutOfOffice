@@ -7,11 +7,13 @@
     var user = (EmployeeModel)ViewData["CurrentUser"];
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<h1>Employees</h1>
+@if (access.HasAccess(user, AccessResourceModel.AccessResource.EmployeesManage))
+{
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+}
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
@@ -101,18 +103,23 @@
                         @Html.Raw(item.Project.ID + "; " + item.Project.ProjectType + "; " + item.Project.StartDate.ToShortDateString() + " - " + item.Project.EndDate.ToShortDateString())
                     }
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                @if (item.Status == Helpers.Status.Active)
-                {
-                    <a asp-page="./Edit" asp-page-handler="Deactivate" asp-route-id="@item.Id">Deactivate</a>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                @if (access.HasAccess(user, AccessResourceModel.AccessResource.EmployeesManage))
+                 {
+                     @Html.Raw("|")
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    @if(item.Status == Helpers.Status.Active)
+                    {
+                        @Html.Raw("|")
+                         <a asp-page="./Edit" asp-page-handler="Deactivate" asp-route-id="@item.Id">Deactivate</a>
+                    }
+                     else
+                        {
+                            @Html.Raw("|")
+                        <a asp-page="./Edit" asp-page-handler="Activate" asp-route-id="@item.Id">Activate</a>
+                     }
                 }
-                else
-                {
-                    <a asp-page="./Edit" asp-page-handler="Activate" asp-route-id="@item.Id">Activate</a>
-                }
-
                 @if (access.HasAccess(user, AccessResourceModel.AccessResource.EmployeesAssignProject))
                 {
                     @Html.Raw("|")

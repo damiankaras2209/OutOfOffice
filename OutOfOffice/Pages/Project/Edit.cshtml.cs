@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
 
@@ -66,7 +61,7 @@ namespace OutOfOffice.Pages.Project
                 return NotFound();
             }
 
-            var projectmodel =  await _context.Projects.FirstOrDefaultAsync(m => m.ID == id);
+            var projectmodel = await _context.Projects.FirstOrDefaultAsync(m => m.ID == id);
             if (projectmodel == null)
             {
                 return NotFound();

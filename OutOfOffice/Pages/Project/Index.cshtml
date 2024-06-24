@@ -1,16 +1,21 @@
 ﻿@page
 @model OutOfOffice.Pages.Project.IndexModel
+@inject Helpers.Access access;
 
 @{
     ViewData["Title"] = "Index";
-    // SelectList types = (SelectList)ViewData["ProjectTypes"];
+    var user = (EmployeeModel)ViewData["CurrentUser"];
+
 }
 
-<h1>Index</h1>
+<h1>Projects</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+@if (access.HasAccess(user, AccessResourceModel.AccessResource.ProjectsManage))
+{
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+}
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
@@ -20,7 +25,6 @@
             Project Manager
             <input type="text" name="managerSearch" value="@Model.ProjectManagerFilter" />
             <input type="submit" value="Search" class="btn btn-primary" />
-            @* <a asp-page="./Index">Back to full List</a> *@
         </p>
     </div>
 </form>
@@ -90,9 +94,12 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                @if (access.HasAccess(user, AccessResourceModel.AccessResource.ProjectsManage))
+                {
+                    @Html.Raw("|")
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                }
             </td>
         </tr>
 }

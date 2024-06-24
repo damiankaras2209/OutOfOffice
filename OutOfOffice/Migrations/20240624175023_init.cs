@@ -219,42 +219,46 @@ namespace OutOfOffice.Migrations
                 columns: new[] { "Position", "Resource", "HasAccess" },
                 values: new object[,]
                 {
-                    { 0, 0, false },
-                    { 0, 1, false },
+                    { 0, 0, true },
+                    { 0, 1, true },
                     { 0, 2, true },
-                    { 0, 3, false },
-                    { 0, 4, true },
-                    { 0, 5, false },
+                    { 0, 3, true },
+                    { 0, 4, false },
+                    { 0, 5, true },
                     { 0, 6, true },
-                    { 0, 7, false },
-                    { 0, 8, false },
+                    { 0, 7, true },
+                    { 0, 8, true },
+                    { 0, 9, false },
                     { 1, 0, true },
-                    { 1, 1, true },
+                    { 1, 1, false },
                     { 1, 2, true },
                     { 1, 3, true },
-                    { 1, 4, true },
+                    { 1, 4, false },
                     { 1, 5, true },
                     { 1, 6, true },
-                    { 1, 7, true },
+                    { 1, 7, false },
                     { 1, 8, true },
+                    { 1, 9, true },
                     { 2, 0, true },
-                    { 2, 1, false },
+                    { 2, 1, true },
                     { 2, 2, true },
                     { 2, 3, true },
-                    { 2, 4, false },
+                    { 2, 4, true },
                     { 2, 5, true },
                     { 2, 6, true },
-                    { 2, 7, false },
+                    { 2, 7, true },
                     { 2, 8, true },
-                    { 3, 0, true },
-                    { 3, 1, true },
+                    { 2, 9, false },
+                    { 3, 0, false },
+                    { 3, 1, false },
                     { 3, 2, true },
-                    { 3, 3, true },
-                    { 3, 4, false },
-                    { 3, 5, true },
+                    { 3, 3, false },
+                    { 3, 4, true },
+                    { 3, 5, false },
                     { 3, 6, true },
-                    { 3, 7, true },
-                    { 3, 8, true }
+                    { 3, 7, false },
+                    { 3, 8, false },
+                    { 3, 9, false }
                 });
 
             migrationBuilder.InsertData(
@@ -262,12 +266,12 @@ namespace OutOfOffice.Migrations
                 columns: new[] { "Id", "Balance", "FullName", "NID", "NormalizedUserName", "PasswordHash", "PeoplePartnerId", "Position", "ProjectId", "Status", "Subdivision", "UserName" },
                 values: new object[,]
                 {
-                    { "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 0, "HR Manager", 1, "hrmanager", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 1, null, 0, 0, "hrmanager" },
-                    { "4303f29a-ec50-4626-b96d-e5d97620c0fd", 0, "Project Manager", 3, "projectmanager", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 0, null, 0, 0, "projectmanager" },
-                    { "80915350-c919-4135-a694-92e014c8e967", 20, "Employee", 5, "employee", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 3, null, 0, 0, "employee" },
-                    { "b0e12ba6-098d-4d47-88dc-7adba060c2c6", 0, "Administrator", 2, "administrator", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 2, null, 0, 0, "administrator" },
-                    { "b9857b90-1a2c-44d2-a808-d6c7af9c86c3", 14, "Employee 2", 6, "employee2", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 3, null, 0, 0, "employee2" },
-                    { "f939b674-8010-4457-82ea-50645329ae70", 0, "PM", 4, "projectmanager2", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "3c6a178e-55e4-4f58-b88a-fa430ebaac35", 0, null, 0, 1, "projectmanager2" }
+                    { "7efca1d3-da46-4110-a66d-254887f88111", 0, "HR Manager", 1, "hrmanager", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "7efca1d3-da46-4110-a66d-254887f88111", 1, null, 0, 0, "hrmanager" },
+                    { "070e9568-8359-47dc-ae39-2cd59304c7bb", 14, "Employee 2", 6, "employee2", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "7efca1d3-da46-4110-a66d-254887f88111", 3, null, 0, 0, "employee2" },
+                    { "15eba506-1421-45bd-a2f3-900e73899ccf", 0, "Project Manager", 3, "projectmanager", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "7efca1d3-da46-4110-a66d-254887f88111", 0, null, 0, 0, "projectmanager" },
+                    { "6d2e2a5d-140a-4b51-9155-94c879a67fbd", 20, "Employee", 5, "employee", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "7efca1d3-da46-4110-a66d-254887f88111", 3, null, 0, 0, "employee" },
+                    { "f127b9c0-c89a-4695-a610-1747f1e188e0", 0, "Administrator", 2, "administrator", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "7efca1d3-da46-4110-a66d-254887f88111", 2, null, 0, 0, "administrator" },
+                    { "f777607e-284c-47b8-a16b-969feb867b0f", 0, "PM", 4, "projectmanager2", "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==", "7efca1d3-da46-4110-a66d-254887f88111", 0, null, 0, 1, "projectmanager2" }
                 });
 
             migrationBuilder.InsertData(
@@ -275,9 +279,9 @@ namespace OutOfOffice.Migrations
                 columns: new[] { "ID", "AbsenceReason", "Comment", "EmployeeId", "EndDate", "StartDate", "Status" },
                 values: new object[,]
                 {
-                    { 1, 2, "Comment A", "80915350-c919-4135-a694-92e014c8e967", new DateOnly(2024, 6, 3), new DateOnly(2024, 6, 1), 0 },
-                    { 2, 0, "Comment B", "b9857b90-1a2c-44d2-a808-d6c7af9c86c3", new DateOnly(2024, 6, 23), new DateOnly(2024, 6, 23), 0 },
-                    { 3, 3, "Comment C", "80915350-c919-4135-a694-92e014c8e967", new DateOnly(2024, 3, 30), new DateOnly(2024, 3, 20), 0 }
+                    { 1, 2, "Comment A", "6d2e2a5d-140a-4b51-9155-94c879a67fbd", new DateOnly(2024, 6, 3), new DateOnly(2024, 6, 1), 0 },
+                    { 2, 0, "Comment B", "070e9568-8359-47dc-ae39-2cd59304c7bb", new DateOnly(2024, 6, 23), new DateOnly(2024, 6, 23), 0 },
+                    { 3, 3, "Comment C", "6d2e2a5d-140a-4b51-9155-94c879a67fbd", new DateOnly(2024, 3, 30), new DateOnly(2024, 3, 20), 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -285,9 +289,9 @@ namespace OutOfOffice.Migrations
                 columns: new[] { "ID", "Comment", "EndDate", "ProjectManagerId", "ProjectType", "StartDate", "Status" },
                 values: new object[,]
                 {
-                    { 1, "Comment X", new DateOnly(2024, 11, 30), "4303f29a-ec50-4626-b96d-e5d97620c0fd", 2, new DateOnly(2023, 10, 1), 0 },
-                    { 2, "Comment Z", new DateOnly(2024, 5, 30), "4303f29a-ec50-4626-b96d-e5d97620c0fd", 0, new DateOnly(2024, 1, 15), 1 },
-                    { 3, "Comment Y", new DateOnly(2023, 12, 31), "4303f29a-ec50-4626-b96d-e5d97620c0fd", 1, new DateOnly(2020, 1, 1), 0 }
+                    { 1, "Comment X", new DateOnly(2024, 11, 30), "15eba506-1421-45bd-a2f3-900e73899ccf", 2, new DateOnly(2023, 10, 1), 0 },
+                    { 2, "Comment Z", new DateOnly(2024, 5, 30), "15eba506-1421-45bd-a2f3-900e73899ccf", 0, new DateOnly(2024, 1, 15), 1 },
+                    { 3, "Comment Y", new DateOnly(2023, 12, 31), "15eba506-1421-45bd-a2f3-900e73899ccf", 1, new DateOnly(2020, 1, 1), 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -295,9 +299,9 @@ namespace OutOfOffice.Migrations
                 columns: new[] { "ID", "ApproverId", "Comment", "LeaveRequestID", "Status" },
                 values: new object[,]
                 {
-                    { 1, "3c6a178e-55e4-4f58-b88a-fa430ebaac35", null, 1, 0 },
-                    { 2, "3c6a178e-55e4-4f58-b88a-fa430ebaac35", null, 2, 0 },
-                    { 3, "3c6a178e-55e4-4f58-b88a-fa430ebaac35", null, 3, 0 }
+                    { 1, "7efca1d3-da46-4110-a66d-254887f88111", null, 1, 0 },
+                    { 2, "7efca1d3-da46-4110-a66d-254887f88111", null, 2, 0 },
+                    { 3, "7efca1d3-da46-4110-a66d-254887f88111", null, 3, 0 }
                 });
 
             migrationBuilder.CreateIndex(

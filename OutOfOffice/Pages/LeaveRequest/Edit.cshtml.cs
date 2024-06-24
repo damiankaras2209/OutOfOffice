@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
-using OutOfOffice.Models;
 using OutOfOffice.Helpers;
-using Microsoft.AspNetCore.Identity;
+using OutOfOffice.Models;
 
 namespace OutOfOffice.Pages.LeaveRequest
 {
@@ -49,7 +43,7 @@ namespace OutOfOffice.Pages.LeaveRequest
             }
             if (id == null)
                 return NotFound();
-            var leaverequest =  await _context.LeaveRequests.FirstOrDefaultAsync(m => m.ID == id);
+            var leaverequest = await _context.LeaveRequests.FirstOrDefaultAsync(m => m.ID == id);
             if (leaverequest == null)
                 return NotFound();
 
@@ -70,7 +64,7 @@ namespace OutOfOffice.Pages.LeaveRequest
             }
             if (id == null)
                 return NotFound();
-            var leaverequest = await _context.LeaveRequests.Include(x=>x.Employee).Include(x=>x.Employee.PeoplePartner).FirstOrDefaultAsync(m => m.ID == id);
+            var leaverequest = await _context.LeaveRequests.Include(x => x.Employee).Include(x => x.Employee.PeoplePartner).FirstOrDefaultAsync(m => m.ID == id);
             if (leaverequest == null)
                 return NotFound();
 

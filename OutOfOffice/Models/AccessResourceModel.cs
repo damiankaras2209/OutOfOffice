@@ -15,6 +15,7 @@ namespace OutOfOffice.Models
             ProjectsList = 6,
             ProjectsManage = 7,
             ProjectsFullList = 8,
+            EmployeesManage = 9,
         }
 
         public AccessResource Resource { get; set; }

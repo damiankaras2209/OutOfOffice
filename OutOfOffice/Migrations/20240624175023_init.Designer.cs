@@ -12,7 +12,7 @@ using OutOfOffice.Data;
 namespace OutOfOffice.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240624165011_init")]
+    [Migration("20240624175023_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -182,13 +182,13 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 0,
                             Resource = 0,
-                            HasAccess = false
+                            HasAccess = true
                         },
                         new
                         {
                             Position = 0,
                             Resource = 1,
-                            HasAccess = false
+                            HasAccess = true
                         },
                         new
                         {
@@ -200,19 +200,19 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 0,
                             Resource = 3,
-                            HasAccess = false
-                        },
-                        new
-                        {
-                            Position = 0,
-                            Resource = 4,
                             HasAccess = true
                         },
                         new
                         {
                             Position = 0,
-                            Resource = 5,
+                            Resource = 4,
                             HasAccess = false
+                        },
+                        new
+                        {
+                            Position = 0,
+                            Resource = 5,
+                            HasAccess = true
                         },
                         new
                         {
@@ -224,12 +224,18 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 0,
                             Resource = 7,
-                            HasAccess = false
+                            HasAccess = true
                         },
                         new
                         {
                             Position = 0,
                             Resource = 8,
+                            HasAccess = true
+                        },
+                        new
+                        {
+                            Position = 0,
+                            Resource = 9,
                             HasAccess = false
                         },
                         new
@@ -242,7 +248,7 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 1,
                             Resource = 1,
-                            HasAccess = true
+                            HasAccess = false
                         },
                         new
                         {
@@ -260,7 +266,7 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 1,
                             Resource = 4,
-                            HasAccess = true
+                            HasAccess = false
                         },
                         new
                         {
@@ -278,12 +284,18 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 1,
                             Resource = 7,
-                            HasAccess = true
+                            HasAccess = false
                         },
                         new
                         {
                             Position = 1,
                             Resource = 8,
+                            HasAccess = true
+                        },
+                        new
+                        {
+                            Position = 1,
+                            Resource = 9,
                             HasAccess = true
                         },
                         new
@@ -296,7 +308,7 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 2,
                             Resource = 1,
-                            HasAccess = false
+                            HasAccess = true
                         },
                         new
                         {
@@ -314,7 +326,7 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 2,
                             Resource = 4,
-                            HasAccess = false
+                            HasAccess = true
                         },
                         new
                         {
@@ -332,25 +344,31 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 2,
                             Resource = 7,
-                            HasAccess = false
+                            HasAccess = true
                         },
                         new
                         {
                             Position = 2,
                             Resource = 8,
                             HasAccess = true
+                        },
+                        new
+                        {
+                            Position = 2,
+                            Resource = 9,
+                            HasAccess = false
                         },
                         new
                         {
                             Position = 3,
                             Resource = 0,
-                            HasAccess = true
+                            HasAccess = false
                         },
                         new
                         {
                             Position = 3,
                             Resource = 1,
-                            HasAccess = true
+                            HasAccess = false
                         },
                         new
                         {
@@ -362,19 +380,19 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 3,
                             Resource = 3,
-                            HasAccess = true
-                        },
-                        new
-                        {
-                            Position = 3,
-                            Resource = 4,
                             HasAccess = false
                         },
                         new
                         {
                             Position = 3,
-                            Resource = 5,
+                            Resource = 4,
                             HasAccess = true
+                        },
+                        new
+                        {
+                            Position = 3,
+                            Resource = 5,
+                            HasAccess = false
                         },
                         new
                         {
@@ -386,13 +404,19 @@ namespace OutOfOffice.Migrations
                         {
                             Position = 3,
                             Resource = 7,
-                            HasAccess = true
+                            HasAccess = false
                         },
                         new
                         {
                             Position = 3,
                             Resource = 8,
-                            HasAccess = true
+                            HasAccess = false
+                        },
+                        new
+                        {
+                            Position = 3,
+                            Resource = 9,
+                            HasAccess = false
                         });
                 });
 
@@ -429,21 +453,21 @@ namespace OutOfOffice.Migrations
                         new
                         {
                             ID = 1,
-                            ApproverId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            ApproverId = "7efca1d3-da46-4110-a66d-254887f88111",
                             LeaveRequestID = 1,
                             Status = 0
                         },
                         new
                         {
                             ID = 2,
-                            ApproverId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            ApproverId = "7efca1d3-da46-4110-a66d-254887f88111",
                             LeaveRequestID = 2,
                             Status = 0
                         },
                         new
                         {
                             ID = 3,
-                            ApproverId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            ApproverId = "7efca1d3-da46-4110-a66d-254887f88111",
                             LeaveRequestID = 3,
                             Status = 0
                         });
@@ -507,13 +531,13 @@ namespace OutOfOffice.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            Id = "7efca1d3-da46-4110-a66d-254887f88111",
                             Balance = 0,
                             FullName = "HR Manager",
                             NID = 1,
                             NormalizedUserName = "hrmanager",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
                             Position = 1,
                             Status = 0,
                             Subdivision = 0,
@@ -521,13 +545,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "b0e12ba6-098d-4d47-88dc-7adba060c2c6",
+                            Id = "f127b9c0-c89a-4695-a610-1747f1e188e0",
                             Balance = 0,
                             FullName = "Administrator",
                             NID = 2,
                             NormalizedUserName = "administrator",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
                             Position = 2,
                             Status = 0,
                             Subdivision = 0,
@@ -535,13 +559,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "4303f29a-ec50-4626-b96d-e5d97620c0fd",
+                            Id = "15eba506-1421-45bd-a2f3-900e73899ccf",
                             Balance = 0,
                             FullName = "Project Manager",
                             NID = 3,
                             NormalizedUserName = "projectmanager",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
                             Position = 0,
                             Status = 0,
                             Subdivision = 0,
@@ -549,13 +573,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "f939b674-8010-4457-82ea-50645329ae70",
+                            Id = "f777607e-284c-47b8-a16b-969feb867b0f",
                             Balance = 0,
                             FullName = "PM",
                             NID = 4,
                             NormalizedUserName = "projectmanager2",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
                             Position = 0,
                             Status = 0,
                             Subdivision = 1,
@@ -563,13 +587,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "80915350-c919-4135-a694-92e014c8e967",
+                            Id = "6d2e2a5d-140a-4b51-9155-94c879a67fbd",
                             Balance = 20,
                             FullName = "Employee",
                             NID = 5,
                             NormalizedUserName = "employee",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
                             Position = 3,
                             Status = 0,
                             Subdivision = 0,
@@ -577,13 +601,13 @@ namespace OutOfOffice.Migrations
                         },
                         new
                         {
-                            Id = "b9857b90-1a2c-44d2-a808-d6c7af9c86c3",
+                            Id = "070e9568-8359-47dc-ae39-2cd59304c7bb",
                             Balance = 14,
                             FullName = "Employee 2",
                             NID = 6,
                             NormalizedUserName = "employee2",
                             PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                            PeoplePartnerId = "3c6a178e-55e4-4f58-b88a-fa430ebaac35",
+                            PeoplePartnerId = "7efca1d3-da46-4110-a66d-254887f88111",
                             Position = 3,
                             Status = 0,
                             Subdivision = 0,
@@ -630,7 +654,7 @@ namespace OutOfOffice.Migrations
                             ID = 1,
                             AbsenceReason = 2,
                             Comment = "Comment A",
-                            EmployeeId = "80915350-c919-4135-a694-92e014c8e967",
+                            EmployeeId = "6d2e2a5d-140a-4b51-9155-94c879a67fbd",
                             EndDate = new DateOnly(2024, 6, 3),
                             StartDate = new DateOnly(2024, 6, 1),
                             Status = 0
@@ -640,7 +664,7 @@ namespace OutOfOffice.Migrations
                             ID = 2,
                             AbsenceReason = 0,
                             Comment = "Comment B",
-                            EmployeeId = "b9857b90-1a2c-44d2-a808-d6c7af9c86c3",
+                            EmployeeId = "070e9568-8359-47dc-ae39-2cd59304c7bb",
                             EndDate = new DateOnly(2024, 6, 23),
                             StartDate = new DateOnly(2024, 6, 23),
                             Status = 0
@@ -650,7 +674,7 @@ namespace OutOfOffice.Migrations
                             ID = 3,
                             AbsenceReason = 3,
                             Comment = "Comment C",
-                            EmployeeId = "80915350-c919-4135-a694-92e014c8e967",
+                            EmployeeId = "6d2e2a5d-140a-4b51-9155-94c879a67fbd",
                             EndDate = new DateOnly(2024, 3, 30),
                             StartDate = new DateOnly(2024, 3, 20),
                             Status = 0
@@ -697,7 +721,7 @@ namespace OutOfOffice.Migrations
                             ID = 1,
                             Comment = "Comment X",
                             EndDate = new DateOnly(2024, 11, 30),
-                            ProjectManagerId = "4303f29a-ec50-4626-b96d-e5d97620c0fd",
+                            ProjectManagerId = "15eba506-1421-45bd-a2f3-900e73899ccf",
                             ProjectType = 2,
                             StartDate = new DateOnly(2023, 10, 1),
                             Status = 0
@@ -707,7 +731,7 @@ namespace OutOfOffice.Migrations
                             ID = 2,
                             Comment = "Comment Z",
                             EndDate = new DateOnly(2024, 5, 30),
-                            ProjectManagerId = "4303f29a-ec50-4626-b96d-e5d97620c0fd",
+                            ProjectManagerId = "15eba506-1421-45bd-a2f3-900e73899ccf",
                             ProjectType = 0,
                             StartDate = new DateOnly(2024, 1, 15),
                             Status = 1
@@ -717,7 +741,7 @@ namespace OutOfOffice.Migrations
                             ID = 3,
                             Comment = "Comment Y",
                             EndDate = new DateOnly(2023, 12, 31),
-                            ProjectManagerId = "4303f29a-ec50-4626-b96d-e5d97620c0fd",
+                            ProjectManagerId = "15eba506-1421-45bd-a2f3-900e73899ccf",
                             ProjectType = 1,
                             StartDate = new DateOnly(2020, 1, 1),
                             Status = 0

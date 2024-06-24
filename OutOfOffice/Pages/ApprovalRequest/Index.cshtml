@@ -8,7 +8,7 @@
     var user = (EmployeeModel)ViewData["CurrentUser"];
 }
 
-<h1>Index</h1>
+<h1>Approval Requests</h1>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
@@ -90,11 +90,6 @@
                     @Html.Raw("|")
                     <a asp-page="./Edit" asp-page-handler="Update" asp-route-status="@RequestStatus.Rejected" asp-route-id="@item.ID">Reject</a>
                 }
-@*                     @if (item.Status == RequestStatus.New || item.Status == RequestStatus.Submitted)
-                {
-                    @Html.Raw("|")
-                    <a asp-page="./Edit" asp-page-handler="Update" asp-route-status="@RequestStatus.Cancelled" asp-route-id="@item.ID">Cancel</a>
-                } *@
             </td>
         </tr>
 }

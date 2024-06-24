@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
-using OutOfOffice.Models;
 using OutOfOffice.Helpers;
-using Microsoft.AspNetCore.Identity;
+using OutOfOffice.Models;
 
 namespace OutOfOffice.Pages.Employee
 {
@@ -67,7 +62,7 @@ namespace OutOfOffice.Pages.Employee
             }
             if (id == null)
                 return NotFound();
-            var employee =  await _context.Employees.Include(e => e.PeoplePartner).FirstOrDefaultAsync(e => e.Id == id);
+            var employee = await _context.Employees.Include(e => e.PeoplePartner).FirstOrDefaultAsync(e => e.Id == id);
             if (employee == null)
                 return NotFound();
 

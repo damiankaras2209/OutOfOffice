@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
-using System;
 
 namespace OutOfOffice.Data
 {
@@ -59,7 +57,8 @@ namespace OutOfOffice.Data
             var e2 = Guid.NewGuid().ToString();
             var nid = 1;
             builder.Entity<EmployeeModel>()
-                .HasData(new {
+                .HasData(new
+                {
                     Id = hr,
                     NID = nid++,
                     UserName = "hrmanager",
@@ -74,7 +73,8 @@ namespace OutOfOffice.Data
                     Status = Status.Active
                 });
             builder.Entity<EmployeeModel>()
-                .HasData(new {
+                .HasData(new
+                {
                     Id = Guid.NewGuid().ToString(),
                     NID = nid++,
                     UserName = "administrator",
@@ -89,65 +89,65 @@ namespace OutOfOffice.Data
                     Status = Status.Active
                 });
             builder.Entity<EmployeeModel>().HasData(new
-                {
-                    Id = pm,
-                    NID = nid++,
-                    UserName = "projectmanager",
-                    NormalizedUserName = "projectmanager",
-                    PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                    AccessFailedCount = 0,
-                    FullName = "Project Manager",
-                    Balance = 0,
-                    PeoplePartnerId = hr,
-                    Position = Position.ProjectManager,
-                    Subdivision = Subdivision.Subdivision1,
-                    Status = Status.Active
-                });
+            {
+                Id = pm,
+                NID = nid++,
+                UserName = "projectmanager",
+                NormalizedUserName = "projectmanager",
+                PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
+                AccessFailedCount = 0,
+                FullName = "Project Manager",
+                Balance = 0,
+                PeoplePartnerId = hr,
+                Position = Position.ProjectManager,
+                Subdivision = Subdivision.Subdivision1,
+                Status = Status.Active
+            });
             builder.Entity<EmployeeModel>().HasData(new
-                {
-                    Id = pm2,
-                    NID = nid++,
-                    UserName = "projectmanager2",
-                    NormalizedUserName = "projectmanager2",
-                    PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                    AccessFailedCount = 0,
-                    FullName = "PM",
-                    Balance = 0,
-                    PeoplePartnerId = hr,
-                    Position = Position.ProjectManager,
-                    Subdivision = Subdivision.Subdivision2,
-                    Status = Status.Active
-                });
+            {
+                Id = pm2,
+                NID = nid++,
+                UserName = "projectmanager2",
+                NormalizedUserName = "projectmanager2",
+                PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
+                AccessFailedCount = 0,
+                FullName = "PM",
+                Balance = 0,
+                PeoplePartnerId = hr,
+                Position = Position.ProjectManager,
+                Subdivision = Subdivision.Subdivision2,
+                Status = Status.Active
+            });
             builder.Entity<EmployeeModel>().HasData(new
-                {
-                    Id = e1,
-                    NID = nid++,
-                    UserName = "employee",
-                    NormalizedUserName = "employee",
-                    PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                    AccessFailedCount = 0,
-                    FullName = "Employee",
-                    Balance = 20,
-                    PeoplePartnerId = hr,
-                    Position = Position.Employee,
-                    Subdivision = Subdivision.Subdivision1,
-                    Status = Status.Active
-                });
+            {
+                Id = e1,
+                NID = nid++,
+                UserName = "employee",
+                NormalizedUserName = "employee",
+                PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
+                AccessFailedCount = 0,
+                FullName = "Employee",
+                Balance = 20,
+                PeoplePartnerId = hr,
+                Position = Position.Employee,
+                Subdivision = Subdivision.Subdivision1,
+                Status = Status.Active
+            });
             builder.Entity<EmployeeModel>().HasData(new
-                {
-                    Id = e2,
-                    NID = nid++,
-                    UserName = "employee2",
-                    NormalizedUserName = "employee2",
-                    PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
-                    AccessFailedCount = 0,
-                    FullName = "Employee 2",
-                    Balance = 14,
-                    PeoplePartnerId = hr,
-                    Position = Position.Employee,
-                    Subdivision = Subdivision.Subdivision1,
-                    Status = Status.Active
-                });
+            {
+                Id = e2,
+                NID = nid++,
+                UserName = "employee2",
+                NormalizedUserName = "employee2",
+                PasswordHash = "AQAAAAIAAYagAAAAEJf3mcMMgf5yHMLgut6WGHsTbXx5Ha6dTYl6rkCXE11KQMs1FuJ6W7q6pNbTLuONBg==",
+                AccessFailedCount = 0,
+                FullName = "Employee 2",
+                Balance = 14,
+                PeoplePartnerId = hr,
+                Position = Position.Employee,
+                Subdivision = Subdivision.Subdivision1,
+                Status = Status.Active
+            });
 
 
 
@@ -155,8 +155,8 @@ namespace OutOfOffice.Data
             {
                 ID = 1,
                 ProjectType = ProjectType.TYPE3,
-                StartDate = new DateOnly(2023,10,1),
-                EndDate = new DateOnly(2024,11,30),
+                StartDate = new DateOnly(2023, 10, 1),
+                EndDate = new DateOnly(2024, 11, 30),
                 ProjectManagerId = pm,
                 Status = Status.Active,
                 Comment = "Comment X"
@@ -191,7 +191,7 @@ namespace OutOfOffice.Data
                 AbsenceReason = AbsenceReason.Reason3,
                 StartDate = new DateOnly(2024, 6, 1),
                 EndDate = new DateOnly(2024, 6, 3),
-                Status = RequestStatus.New,
+                Status = RequestStatus.Submitted,
                 Comment = "Comment A"
             });
             builder.Entity<LeaveRequestModel>().HasData(new
@@ -201,7 +201,7 @@ namespace OutOfOffice.Data
                 AbsenceReason = AbsenceReason.Reason1,
                 StartDate = new DateOnly(2024, 6, 23),
                 EndDate = new DateOnly(2024, 6, 23),
-                Status = RequestStatus.New,
+                Status = RequestStatus.Submitted,
                 Comment = "Comment B"
             });
             builder.Entity<LeaveRequestModel>().HasData(new
@@ -211,7 +211,7 @@ namespace OutOfOffice.Data
                 AbsenceReason = AbsenceReason.Reason4,
                 StartDate = new DateOnly(2024, 3, 20),
                 EndDate = new DateOnly(2024, 3, 30),
-                Status = RequestStatus.New,
+                Status = RequestStatus.Submitted,
                 Comment = "Comment C"
             });
 
@@ -239,42 +239,46 @@ namespace OutOfOffice.Data
                 Status = RequestStatus.New,
             });
 
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)0, HasAccess = false });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)1, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)0, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)1, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)2, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)3, HasAccess = false });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)4, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)5, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)3, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)4, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)5, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)6, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)7, HasAccess = false });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)8, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)7, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)8, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)0, Resource = (AccessResourceModel.AccessResource)9, HasAccess = false });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)0, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)1, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)1, HasAccess = false });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)2, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)3, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)4, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)4, HasAccess = false });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)5, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)6, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)7, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)7, HasAccess = false });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)8, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)1, Resource = (AccessResourceModel.AccessResource)9, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)0, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)1, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)1, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)2, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)3, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)4, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)4, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)5, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)6, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)7, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)7, HasAccess = true });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)8, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)0, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)1, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)2, Resource = (AccessResourceModel.AccessResource)9, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)0, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)1, HasAccess = false });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)2, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)3, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)4, HasAccess = false });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)5, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)3, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)4, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)5, HasAccess = false });
             builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)6, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)7, HasAccess = true });
-            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)8, HasAccess = true });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)7, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)8, HasAccess = false });
+            builder.Entity<AccessResourceModel>().HasData(new { Position = (Position)3, Resource = (AccessResourceModel.AccessResource)9, HasAccess = false });
 
 
         }

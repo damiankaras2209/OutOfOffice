@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using OutOfOffice.Helpers;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using OutOfOffice.Helpers;
-using OutOfOffice.Models;
 
 namespace OutOfOffice.Models
 {

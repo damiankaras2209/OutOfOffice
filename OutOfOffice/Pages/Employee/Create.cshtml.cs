@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
-using Newtonsoft.Json.Linq;
-using OutOfOffice.Data;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace OutOfOffice.Pages.Employee
 {
@@ -23,13 +12,13 @@ namespace OutOfOffice.Pages.Employee
         private readonly OutOfOffice.Data.ApplicationDbContext _context;
         private readonly UserManager<EmployeeModel> _userManager;
         private readonly Access _access;
-        private readonly UserStore<EmployeeModel> _userStore;
+        private readonly IUserStore<EmployeeModel> _userStore;
 
         public CreateModel(
             OutOfOffice.Data.ApplicationDbContext context,
             UserManager<EmployeeModel> userManager,
             Access access,
-            UserStore<EmployeeModel> userStore
+            IUserStore<EmployeeModel> userStore
         )
         {
             _context = context;
@@ -59,8 +48,17 @@ namespace OutOfOffice.Pages.Employee
         }
 
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
+            var userName = User?.Identity?.Name;
+            if (userName != null)
+            {
+                CurrentUser = await _userManager.FindByNameAsync(userName);
+            }
+            if (!_access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.EmployeesList))
+            {
+                return Forbid();
+            }
             PopulateViewData();
             return Page();
         }

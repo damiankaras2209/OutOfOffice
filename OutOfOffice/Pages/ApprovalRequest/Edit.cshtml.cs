@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
-using OutOfOffice.Models;
 using OutOfOffice.Helpers;
-using System.ComponentModel.DataAnnotations.Schema;
+using OutOfOffice.Models;
 using System.ComponentModel.DataAnnotations;
-using Azure.Core;
-using Microsoft.AspNetCore.Identity;
 
 namespace OutOfOffice.Pages.ApprovalRequest
 {
@@ -44,7 +36,7 @@ namespace OutOfOffice.Pages.ApprovalRequest
             public ApprovalRequestModel Request { get; set; }
             public int RequestId { get; set; }
             [Required]
-            public string Comment {  get; set; }
+            public string Comment { get; set; }
 
         }
 
@@ -65,7 +57,7 @@ namespace OutOfOffice.Pages.ApprovalRequest
             }
             if (id == null)
                 return NotFound();
-            var approvalRequest = await _context.ApprovalRequests.Include(x=>x.LeaveRequest).Include(x => x.LeaveRequest.Employee).FirstOrDefaultAsync(a => a.ID == id);
+            var approvalRequest = await _context.ApprovalRequests.Include(x => x.LeaveRequest).Include(x => x.LeaveRequest.Employee).FirstOrDefaultAsync(a => a.ID == id);
             if (approvalRequest == null)
                 return NotFound();
 
@@ -101,7 +93,7 @@ namespace OutOfOffice.Pages.ApprovalRequest
             approvalRequest.Comment = RejectInputModel?.Comment;
             approvalRequest.Status = RequestStatus.Rejected;
             approvalRequest.LeaveRequest.Status = RequestStatus.Rejected;
-            
+
 
             await _context.SaveChangesAsync();
 

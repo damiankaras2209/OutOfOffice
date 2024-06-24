@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
+﻿using OutOfOffice.Data;
 using OutOfOffice.Models;
 
 namespace OutOfOffice.Repositories
@@ -22,6 +21,6 @@ namespace OutOfOffice.Repositories
 
             //list.ForEach(a => a.isRented = _context.Rents.Where(b => b.VehicleId == a.Id).Where(b => b.Status == RentModel.RentStatus.ACTIVE).Any());
             return list;
-            }
+        }
     }
 }

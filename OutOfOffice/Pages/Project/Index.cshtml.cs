@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using OutOfOffice.Data;
 using OutOfOffice.Helpers;
 using OutOfOffice.Models;
 
@@ -20,7 +13,7 @@ namespace OutOfOffice.Pages.Project
         private readonly UserManager<EmployeeModel> _userManager;
         private readonly Access _access;
 
-        public IndexModel (
+        public IndexModel(
             OutOfOffice.Data.ApplicationDbContext context,
             UserManager<EmployeeModel> userManager,
             Access access
@@ -48,7 +41,7 @@ namespace OutOfOffice.Pages.Project
         public string ProjectManagerFilter { get; set; }
 
 
-        public IList<ProjectModel> Project { get;set; } = default!;
+        public IList<ProjectModel> Project { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string sortOrder, string idSearch, string managerSearch)
         {
@@ -77,7 +70,21 @@ namespace OutOfOffice.Pages.Project
             IQueryable<ProjectModel> projectsIQ = from p in _context.Projects.Include(p => p.ProjectManager)
                                                   select p;
 
-            //ProjectTypes = new SelectList((ProjectType[])Enum.GetValues(typeof(ProjectType)));
+            if (! _access.HasAccess(CurrentUser, AccessResourceModel.AccessResource.ProjectsFullList))
+            {
+                System.Diagnostics.Debug.WriteLine(CurrentUser.Id);
+                System.Diagnostics.Debug.WriteLine("1");
+                var user = _context.Employees.Include(e => e.Project).Where(e => e.Id == CurrentUser.Id).FirstOrDefault();
+                if (user.Project != null)
+                {
+                    projectsIQ = projectsIQ.Where(p => p.ID == user.Project.ID);
+                }
+                else
+                {
+                    projectsIQ = projectsIQ.Where(p => p.ID == -1);
+                }
+            }
+
 
             if (!String.IsNullOrEmpty(idSearch))
                 projectsIQ = projectsIQ.Where(p => p.ID.ToString() == idSearch);
@@ -86,20 +93,20 @@ namespace OutOfOffice.Pages.Project
 
             switch (sortOrder)
             {
-                case "id":          projectsIQ = projectsIQ.OrderBy             (p => p.ID);break;
-                case "id_desc":     projectsIQ = projectsIQ.OrderByDescending   (p => p.ID); break;
-                case "type":        projectsIQ = projectsIQ.OrderBy             (p => p.ProjectType);break;
-                case "type_desc":   projectsIQ = projectsIQ.OrderByDescending   (p => p.ProjectType);break;
-                case "manager":     projectsIQ = projectsIQ.OrderBy             (p => p.ProjectManager.FullName);break;
-                case "manager_desc":projectsIQ = projectsIQ.OrderByDescending   (p => p.ProjectManager.FullName);break;
-                case "start":       projectsIQ = projectsIQ.OrderBy             (p => p.StartDate);break;
-                case "start_desc":  projectsIQ = projectsIQ.OrderByDescending   (p => p.StartDate);break;
-                case "end":         projectsIQ = projectsIQ.OrderBy             (p => p.EndDate);break;
-                case "end_desc":    projectsIQ = projectsIQ.OrderByDescending   (p => p.EndDate);break;
-                case "comment":     projectsIQ = projectsIQ.OrderBy             (p => p.Comment);break;
-                case "comment_desc":projectsIQ = projectsIQ.OrderByDescending   (p => p.Comment);break;
-                case "status":      projectsIQ = projectsIQ.OrderBy             (p => p.Status);break;
-                case "status_desc": projectsIQ = projectsIQ.OrderByDescending   (p => p.Status);break;
+                case "id": projectsIQ = projectsIQ.OrderBy(p => p.ID); break;
+                case "id_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.ID); break;
+                case "type": projectsIQ = projectsIQ.OrderBy(p => p.ProjectType); break;
+                case "type_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.ProjectType); break;
+                case "manager": projectsIQ = projectsIQ.OrderBy(p => p.ProjectManager.FullName); break;
+                case "manager_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.ProjectManager.FullName); break;
+                case "start": projectsIQ = projectsIQ.OrderBy(p => p.StartDate); break;
+                case "start_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.StartDate); break;
+                case "end": projectsIQ = projectsIQ.OrderBy(p => p.EndDate); break;
+                case "end_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.EndDate); break;
+                case "comment": projectsIQ = projectsIQ.OrderBy(p => p.Comment); break;
+                case "comment_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.Comment); break;
+                case "status": projectsIQ = projectsIQ.OrderBy(p => p.Status); break;
+                case "status_desc": projectsIQ = projectsIQ.OrderByDescending(p => p.Status); break;
                 default:
                     projectsIQ = projectsIQ.OrderBy(p => p.ID);
                     break;

@@ -8,7 +8,7 @@
     var user = (EmployeeModel)ViewData["CurrentUser"];
 }
 
-<h1>Index</h1>
+<h1>Leave Requests</h1>
 @if (access.HasAccess(user, AccessResourceModel.AccessResource.LeaveRequestsCreateAndManage))
 {
     <p>
@@ -97,10 +97,10 @@
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
                 @if (access.HasAccess(user, AccessResourceModel.AccessResource.LeaveRequestsCreateAndManage))
                 {
-                    @Html.Raw("|")
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
                     @if (item.Status == RequestStatus.New)
                     {
+                            @Html.Raw("|")
+                            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
                             @Html.Raw("|")
                             <a asp-page="./Edit" asp-page-handler="Update" asp-route-status="@RequestStatus.Submitted" asp-route-id="@item.ID">Submit</a>
                     }
